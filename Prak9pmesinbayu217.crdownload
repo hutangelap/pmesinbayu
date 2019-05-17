@@ -1,0 +1,76 @@
+
+# coding: utf-8
+
+# In[55]:
+
+from sklearn.cluster import AgglomerativeClustering
+
+
+# In[56]:
+
+from sklearn.datasets import make_blobs
+
+
+# In[57]:
+
+X,y = make_blobs(random_state=0, n_samples=1000)
+
+
+# In[58]:
+
+X
+
+
+# In[59]:
+
+import matplotlib.pyplot as plt
+
+
+# In[60]:
+
+plt.plot (X[:,0],X[:,1],'ro') 
+plt.show()
+
+
+# In[61]:
+
+clustering  = AgglomerativeClustering(n_clusters=5,linkage="ward", affinity='euclidean')
+
+
+# In[62]:
+
+clustering.fit(X)
+
+
+# In[63]:
+
+plt.scatter(X[:,0],X[:,1],c=clustering.labels_,marker='o')
+plt.show()
+
+
+# In[64]:
+
+clustering  = AgglomerativeClustering(n_clusters=3,linkage="average", affinity='manhattan')
+plt.show()
+
+
+# In[65]:
+
+clustering  = AgglomerativeClustering(n_clusters=3,linkage="complete", affinity='manhattan')
+
+
+# In[66]:
+
+clustering.fit(X)
+
+
+# In[67]:
+
+plt.scatter(X[:,0],X[:,1],c=clustering.labels_,marker='o')
+plt.show()
+
+
+# In[ ]:
+
+
+
